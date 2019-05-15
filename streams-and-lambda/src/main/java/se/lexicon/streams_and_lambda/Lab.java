@@ -107,11 +107,11 @@ public class Lab {
         System.out.println("-----------------------");
         List<String> list = Arrays.asList(
                 "The", "Quick", "BROWN", "Fox", "Jumped", "Over", "The", "LAZY", "DOG");
-        Set<String>newNames=list.stream().map(l->l.toLowerCase()).collect(TreeSet::new,TreeSet::add,TreeSet::addAll);
-        System.out.print(newNames);
-        //printout
-        //[brown, dog, fox, jumped, lazy, over, quick, the]
-    }
+                     
+    List<String>newNames=list.stream().map(String::toLowerCase).collect(Collectors.toList());
+    System.out.print(newNames);
+        }
+    
 
     /**
      * Exercise 7
@@ -147,10 +147,9 @@ public class Lab {
     */
     public void exercise9(){
         System.out.println("\nRunning exercise 9:\n");
-
-        /* Your code here */
-
-
+        Comparator<Person> lastName= (p1,p2) -> p1.getLastName().
+        compareToIgnoreCase(p2.getLastName());
+       persons.stream().sorted(lastName).forEach(System.out::println);
     }
 
     /**
